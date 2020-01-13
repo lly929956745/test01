@@ -39,6 +39,10 @@
           "3.讲个《笑话》" +
           "\n"
       );
+      if (userValue === "q" || userValue === "Q") {
+        alert("小娜要走了!");
+        break;
+      }
       switch (userValue) {
         case "1":
         case "总和":
@@ -80,9 +84,6 @@
         default:
           alert("您说的什么,小娜不明白");
           break;
-      }
-      if (userValue === "q" || userValue === "Q") {
-        break;
       }
     }
   </script>
