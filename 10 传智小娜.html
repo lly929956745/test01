@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>传智小娜</title>
+  </head>
+  <body></body>
+  <script>
+    // 需求:实现传智小娜的功能,当用户输入不同的值时实现不同的功能
+
+    // 笑话存储
+    var jokes = [
+      "众里寻他千百度,蓦然回首那人依旧对我不屑一顾",
+      "有一种爱叫我无所谓,有一种爱被爱叫算我倒霉",
+      "上今天的班睡昨天的觉",
+      "秋天睡觉的最高境界--吹着风扇盖着棉被",
+      "其实我不笨只是懒得聪明罢了",
+      "几十个美女说我帅,我没承认她们就用砖头砸我,说我虚伪",
+      "我早上看时间不是为了看几点了,而是为了看还可以睡多久",
+      "只要瘦什么都百搭,只要胖什么都白搭",
+      "岁月不饶人首先饶不了女人,机会不等人首先等不了男人",
+      "没心没肺能活百岁,问心无愧做人不累",
+      "精神分裂的好处是遇到事有个人商量"
+    ];
+
+    // 1.循环弹出输入框
+    while (1) {
+      var userValue = prompt(
+        "您好,我是传智小娜,您的语音助手~~~~~~~~~~" +
+          "\n" +
+          "输入《编号》或《关键词》选择功能，输入q退出聊天" +
+          "\n" +
+          "1.计算《总和》" +
+          "\n" +
+          "2.获取《时间》" +
+          "\n" +
+          "3.讲个《笑话》" +
+          "\n"
+      );
+      switch (userValue) {
+        case "1":
+        case "总和":
+          // 计算总和
+          //   1.获得用户输入的数值
+          var userNum = prompt('请输入要相加的数字,并用","分开. 如1,2,3,');
+          var Nums = userNum.split(",");
+          var sum = 0;
+          for (var i = 0; i < Nums.length; i++) {
+            sum += parseFloat(Nums[i]);
+          }
+          alert("您输入的数字总和为:" + sum);
+          break;
+        case "2":
+        case "时间":
+          //   获取当前时间
+          var nowTime = new Date();
+          var year = nowTime.getFullYear();
+          var month = nowTime.getMonth() + 1;
+          var day = nowTime.getDate();
+          var hour = nowTime.getHours();
+          var minu = nowTime.getMinutes();
+          var sec = nowTime.getSeconds();
+          month = month < 10 ? "0" + month : month;
+          day = day < 10 ? "0" + day : day;
+          hour = hour < 10 ? "0" + hour : hour;
+          minu = minu < 10 ? "0" + minu : minu;
+          sec = sec < 10 ? "0" + sec : sec;
+          alert(
+            year + "-" + month + "-" + day + " " + hour + ":" + minu + ":" + sec
+          );
+          break;
+        case "3":
+        case "笑话":
+          //   获取笑话
+          var index = Math.floor(Math.random() * jokes.length);
+          alert(jokes[index]);
+          break;
+        default:
+          alert("您说的什么,小娜不明白");
+          break;
+      }
+      if (userValue === "q" || userValue === "Q") {
+        break;
+      }
+    }
+  </script>
+</html>
